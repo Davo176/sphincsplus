@@ -1,6 +1,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #include "api.h"
 #include "params.h"
@@ -93,7 +94,7 @@ int crypto_sign_keypair(unsigned char *pk, unsigned char *sk)
  * Returns an array containing a detached signature.
  */
 int crypto_sign_signature(uint8_t *sig, size_t *siglen,
-                          const uint8_t *m, size_t mlen, const uint8_t *sk)
+                          const uint8_t *m, size_t mlen, const uint8_t *sk,FILE *fp_rsp)
 {
     spx_ctx ctx;
 
@@ -123,6 +124,7 @@ int crypto_sign_signature(uint8_t *sig, size_t *siglen,
        This can help counter side-channel attacks that would benefit from
        getting a large number of traces when the signer uses the same nodes. */
     randombytes(optrand, SPX_N);
+    fprintBstr(fp_rsp,"optrand = ",optrand,SPX_N);
     /* Compute the digest randomization value. */
     gen_message_random(sig, sk_prf, optrand, m, mlen, &ctx);
 
@@ -245,11 +247,11 @@ int crypto_sign_verify(const uint8_t *sig, size_t siglen,
  */
 int crypto_sign(unsigned char *sm, unsigned long long *smlen,
                 const unsigned char *m, unsigned long long mlen,
-                const unsigned char *sk)
+                const unsigned char *sk, FILE *fp_rsp)
 {
     size_t siglen;
 
-    crypto_sign_signature(sm, &siglen, m, (size_t)mlen, sk);
+    crypto_sign_signature(sm, &siglen, m, (size_t)mlen, sk,fp_rsp);
 
     memmove(sm + SPX_BYTES, m, mlen);
     *smlen = siglen + mlen;
