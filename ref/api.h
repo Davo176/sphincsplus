@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #include "params.h"
 
@@ -52,7 +53,7 @@ int crypto_sign_keypair(unsigned char *pk, unsigned char *sk);
  * Returns an array containing a detached signature.
  */
 int crypto_sign_signature(uint8_t *sig, size_t *siglen,
-                          const uint8_t *m, size_t mlen, const uint8_t *sk);
+                          const uint8_t *m, size_t mlen, const uint8_t *sk,FILE *fp_rsp);
 
 /**
  * Verifies a detached signature and message under a given public key.
@@ -65,7 +66,7 @@ int crypto_sign_verify(const uint8_t *sig, size_t siglen,
  */
 int crypto_sign(unsigned char *sm, unsigned long long *smlen,
                 const unsigned char *m, unsigned long long mlen,
-                const unsigned char *sk);
+                const unsigned char *sk,FILE *fp_rsp);
 
 /**
  * Verifies a given signature-message pair under a given public key.

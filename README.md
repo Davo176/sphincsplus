@@ -1,3 +1,10 @@
+## Additional Testing Builds
+Running 
+python3 createAddRandom.py
+python3 createAddSign.py
+
+will build the new test cases
+
 ## SPHINCS+
 
 This repository contains the software that accompanies the [SPHINCS+ submission](https://sphincs.org/) to [NIST's Post-Quantum Cryptography](https://csrc.nist.gov/Projects/Post-Quantum-Cryptography) project.
