@@ -3,6 +3,8 @@
 
 #define SPX_NAMESPACE(s) SPX_##s
 
+#define EXPORTINFO "haraka-128f"
+
 /* Hash output length in bytes. */
 #define SPX_N 16
 /* Height of the hypertree. */

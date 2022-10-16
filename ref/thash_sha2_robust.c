@@ -7,6 +7,9 @@
 #include "utils.h"
 #include "sha2.h"
 
+#include "params/robust.h"
+
+
 #if SPX_SHA512
 static void thash_512(unsigned char *out, const unsigned char *in, unsigned int inblocks,
            const spx_ctx *ctx, uint32_t addr[8]);

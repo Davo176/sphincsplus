@@ -7,6 +7,7 @@
 #include "utils.h"
 
 #include "haraka.h"
+#include "params/robust.h"
 
 /**
  * Takes an array of inblocks concatenated arrays of SPX_N bytes.

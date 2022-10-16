@@ -51,6 +51,15 @@ addRand: addRand.c $(DET_SOURCES) $(DET_HEADERS)
 addSign: addSign.c $(DET_SOURCES) $(DET_HEADERS)
 	$(CC) $(CFLAGS) -o $@ $(DET_SOURCES) $< -lcrypto
 
+createKeyPairs: createKeyPairs.c $(DET_SOURCES) $(DET_HEADERS)
+	$(CC) $(CFLAGS) -o $@ $(DET_SOURCES) $< -lcrypto
+
+createSigned: createSigned.c $(DET_SOURCES) $(DET_HEADERS)
+	$(CC) $(CFLAGS) -o $@ $(DET_SOURCES) $< -lcrypto
+
+checkSigned: checkSigned.c $(DET_SOURCES) $(DET_HEADERS)
+	$(CC) $(CFLAGS) -o $@ $(DET_SOURCES) $< -lcrypto -g
+
 test/benchmark: test/benchmark.c test/cycles.c $(SOURCES) $(HEADERS)
 	$(CC) $(CFLAGS) -o $@ test/cycles.c $(SOURCES) $< $(LDLIBS)
 

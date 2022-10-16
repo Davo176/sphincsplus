@@ -8,6 +8,9 @@
 
 #include "haraka.h"
 
+#include "params/simple.h"
+
+
 /**
  * Takes an array of inblocks concatenated arrays of SPX_N bytes.
  */
