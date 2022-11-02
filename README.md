@@ -5,6 +5,20 @@ python3 createAddSign.py
 
 will build the new test cases
 
+For interoperability testing you will have to change between java and csharp in
+the files: ref/createSigned.c ref/checkSigned.c
+you will also have to swap between robust and simple in the following files:
+createSigned.py, checkSigned.py 
+and ref/createSigned.c ref/checkSigned.c (add to output files basically making sure filenames are unique. currently createSigned has simple and checkSigned has robust so you can see examples there)
+
+So you will end up running 
+createSigned.py, checkSigned.py 
+4 times: 
+- java, simple
+- java, robust
+- csharp, simple
+- csharp, robust
+
 ## SPHINCS+
 
 This repository contains the software that accompanies the [SPHINCS+ submission](https://sphincs.org/) to [NIST's Post-Quantum Cryptography](https://csrc.nist.gov/Projects/Post-Quantum-Cryptography) project.
